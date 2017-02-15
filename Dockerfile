@@ -46,3 +46,5 @@ RUN sh -x /tmp/scripts/bootstrap.sh
 
 # Standard SSH port
 EXPOSE 22
+
+CMD ["/usr/sbin/sshd", "-D"]
