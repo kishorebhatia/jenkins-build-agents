@@ -38,6 +38,9 @@ RUN curl -L -o /tmp/docker-latest.tgz https://get.docker.com/builds/Linux/x86_64
 RUN curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-$(uname -s)-$(uname -m)"
 RUN chmod +x /usr/local/bin/docker-compose
 
+# Add the jenkins user to sudoers
+RUN echo "jenkins    ALL=(ALL)    ALL" >> etc/sudoers
+
 #run bootstrap script
 RUN mkdir -p /tmp/scripts/
 ADD bootstrap.sh /tmp/scripts/bootstrap.sh
